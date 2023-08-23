@@ -1,0 +1,17 @@
+image: python:3.9
+
+before_script:
+  - python -V
+  - python -m venv venv
+  - source venv/bin/activate
+  - pip install -r requirements.txt
+
+stages:
+  - run
+
+run bot:
+  stage: run
+  script:
+    - python main.py
+  only:
+    - master
